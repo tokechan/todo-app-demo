@@ -31,3 +31,7 @@ backend/.phpunit.result.cache
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Vite
+.vite/
+frontend/.vite/
