@@ -1,0 +1,33 @@
+# Dependencies
+frontend/node_modules
+backend/vendor
+
+# Environment files
+frontend/.env
+frontend/.env.local
+backend/.env
+
+# Build files
+frontend/dist
+frontend/build
+
+# Laravel specific
+backend/node_modules
+backend/public/hot
+backend/public/storage
+backend/storage/*.key
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/storage/logs/*
+backend/.phpunit.result.cache
+
+# IDE specific
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace
+
+# OS specific
+.DS_Store
+Thumbs.db
