@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Todo;
 use Illuminate\Http\Request;
 
 class TodoController extends Controller
@@ -11,7 +12,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        rreturn Todo::all();
+        return Todo::all();
     }
 
     /**
@@ -21,6 +22,7 @@ class TodoController extends Controller
     {
         $validated = $request->validate([
             'text' => 'required|string|max:255',
+            'completed' => 'sometimes|boolean',
         ]);
 
         return Todo::create($validated);
@@ -41,10 +43,10 @@ class TodoController extends Controller
     {
         $validated = $request->validate([
             'text' => 'required|string|max:255',
-            'completed' => 'sometims|required|boolean',
+            'completed' => 'sometimes|required|boolean',
         ]);
 
-        return $todo->update($validated);
+        $todo->update($validated);
         return $todo;
     }
 
