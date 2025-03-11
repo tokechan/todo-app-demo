@@ -42,8 +42,8 @@ class TodoController extends Controller
     public function update(Request $request, Todo $todo)
     {
         $validated = $request->validate([
-            'text' => 'required|string|max:255',
-            'completed' => 'sometimes|required|boolean',
+            'text' => 'sometimes|required|string|max:255',
+            'completed' => 'sometimes|boolean',
         ]);
 
         $todo->update($validated);
@@ -57,5 +57,15 @@ class TodoController extends Controller
     {
         $todo->delete();
         return response()->noContent();
+    }
+
+    /**
+     * Toggle the completed status of the specified resource.
+     */
+    public function toggleCompleted(Todo $todo)
+    {
+        $todo->completed = !$tod0->completed;
+        $todo->save();
+        return $todo;
     }
 }
