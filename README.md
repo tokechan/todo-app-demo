@@ -1,31 +1,51 @@
-# Todo Application
+# ToDo アプリケーション
 
-A full-stack todo application built with React (TypeScript) and Laravel.
+ReactとLaravelで構築されたフルスタックToDoアプリケーション。
 
-## Project Structure
+## プロジェクト構造
 
 ```
-todo/
-├── frontend/          # React TypeScript application
-│   ├── src/          # Source files
-│   └── package.json  # Frontend dependencies
+todo-app-demo/
+├── frontend/                   # React TypeScript アプリケーション
+│   ├── public/                 # 静的ファイル
+│   ├── src/                    # ソースコード
+│   │   ├── components/         # UIコンポーネント
+│   │   │   ├── atoms/          # 最小単位のコンポーネント
+│   │   │   ├── molecules/      # 複数のatomsで構成されるコンポーネント
+│   │   │   ├── organisms/      # 複数のmoleculesで構成されるコンポーネント
+│   │   │   └── pages/          # ページコンポーネント
+│   │   ├── contexts/           # Reactコンテキスト
+│   │   ├── hooks/              # カスタムフック
+│   │   ├── services/           # APIサービス
+│   │   ├── types/              # 型定義
+│   │   ├── utils/              # ユーティリティ関数
+│   │   ├── App.tsx             # アプリケーションのルートコンポーネント
+│   │   └── main.tsx            # エントリーポイント
+│   ├── package.json            # フロントエンド依存関係
+│   └── tsconfig.json           # TypeScript設定
 │
-└── backend/          # Laravel API
-    ├── app/         # Application core code
-    ├── database/    # Migrations and seeders
-    └── routes/      # API routes
+└── backend/                    # Laravel API
+    ├── app/                    # アプリケーションコア
+    │   ├── Http/               # HTTPレイヤー
+    │   │   └── Controllers/    # APIコントローラー（TodoController）
+    │   ├── Models/             # データモデル（Todo, User）
+    │   └── Providers/          # サービスプロバイダー
+    ├── database/               # マイグレーションとシーダー
+    ├── routes/                 # APIルート
+    ├── tests/                  # テストファイル
+    └── composer.json           # バックエンド依存関係
 ```
 
-## Setup Instructions
+## セットアップ手順
 
-### Frontend
+### フロントエンド
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-### Backend
+### バックエンド
 ```bash
 cd backend
 composer install
@@ -35,12 +55,34 @@ php artisan migrate
 php artisan serve
 ```
 
-## Development
+## 開発環境
 
-- Frontend runs on: http://localhost:5173
-- Backend API runs on: http://localhost:8000
+- フロントエンド: http://localhost:5173
+- バックエンドAPI: http://localhost:8000
 
-## Technologies
+## 使用技術
 
-- Frontend: React, TypeScript, Vite
-- Backend: Laravel, MySQL
+### フロントエンド
+- React
+- TypeScript
+- Vite (ビルドツール)
+- Atomicデザインパターン（コンポーネント設計）
+
+### バックエンド
+- Laravel
+- MySQL
+- RESTful API
+
+## 機能
+
+- ToDoアイテムの表示
+- 新規ToDoの追加
+- ToDoの完了状態の切り替え
+- ToDoの削除
+
+## API エンドポイント
+
+- `GET /api/todos` - 全てのToDoを取得
+- `POST /api/todos` - 新しいToDoを作成
+- `PUT /api/todos/{id}` - 指定したToDoを更新
+- `DELETE /api/todos/{id}` - 指定したToDoを削除
