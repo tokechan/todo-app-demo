@@ -1,6 +1,6 @@
 # ToDo アプリケーション
 
-ReactとLaravelで構築されたフルスタックToDoアプリケーション。
+ReactとLaravelで構築されたToDoアプリケーション。
 
 ## プロジェクト構造
 
